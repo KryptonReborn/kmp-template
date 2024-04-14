@@ -1,12 +1,17 @@
 [versions]
-agp = "8.0.2"
+agp = "8.1.4"
 kotlin = "1.9.22"
 android-minSdk = "24"
 android-compileSdk = "33"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+
+# Plugins defined by this project
+commonMppLib = { id = "common.mpp.lib", version = "unspecified" }
