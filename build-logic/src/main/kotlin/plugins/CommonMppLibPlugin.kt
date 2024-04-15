@@ -3,7 +3,7 @@ package plugins
 import com.android.build.gradle.LibraryExtension
 import extensions.libs
 import org.gradle.api.*
-import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
@@ -16,10 +16,9 @@ class CommonMppLibPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                namespace = "kmp.template"
-                compileSdk = libs.findVersion("android-compileSdk").get().displayName.toInt()
+                compileSdk = libs.findVersion("androidCompileSdk").get().displayName.toInt()
                 defaultConfig {
-                    minSdk = libs.findVersion("android-minSdk").get().displayName.toInt()
+                    minSdk = libs.findVersion("androidMinSdk").get().displayName.toInt()
                 }
             }
 
@@ -65,15 +64,35 @@ class CommonMppLibPlugin : Plugin<Project> {
 
                 sourceSets.apply {
                     commonMain.get()
-                    commonTest.get()
-                    jvmMain.get()
-                    jvmTest.get()
-                    jsMain.get()
-                    jsTest.get()
+                    commonTest.dependencies {
+                        implementation(libs.findLibrary("kotlinTest").get())
+                    }
+                    jvmMain.dependencies {
+                        implementation(libs.findLibrary("kotlinStdLib").get())
+                    }
+                    jvmTest.dependencies {
+                        implementation(libs.findLibrary("kotlinTest").get())
+                    }
+                    jsMain.dependencies {
+                        implementation(libs.findLibrary("jsStdLib").get())
+                    }
+                    jsTest.dependencies {
+                        implementation(libs.findLibrary("jsTest").get())
+                    }
                     nativeMain.get().dependsOn(commonMain.get())
                     nativeTest.get().dependsOn(commonTest.get())
                     iosMain.get().dependsOn(nativeMain.get())
                     iosTest.get().dependsOn(nativeTest.get())
+                    val wasmJsMain by getting {
+                        dependencies {
+                            implementation(libs.findLibrary("wasmJsStdLib").get())
+                        }
+                    }
+                    val wasmJsTest by getting {
+                        dependencies {
+                            implementation(libs.findLibrary("wasmJsTest").get())
+                        }
+                    }
                 }
             }
         }
