@@ -67,32 +67,10 @@ class CommonMppLibPlugin : Plugin<Project> {
                     commonTest.dependencies {
                         implementation(libs.findLibrary("kotlinTest").get())
                     }
-                    jvmMain.dependencies {
-                        implementation(libs.findLibrary("kotlinStdLib").get())
-                    }
-                    jvmTest.dependencies {
-                        implementation(libs.findLibrary("kotlinTest").get())
-                    }
-                    jsMain.dependencies {
-                        implementation(libs.findLibrary("jsStdLib").get())
-                    }
-                    jsTest.dependencies {
-                        implementation(libs.findLibrary("jsTest").get())
-                    }
                     nativeMain.get().dependsOn(commonMain.get())
                     nativeTest.get().dependsOn(commonTest.get())
                     iosMain.get().dependsOn(nativeMain.get())
                     iosTest.get().dependsOn(nativeTest.get())
-                    val wasmJsMain by getting {
-                        dependencies {
-                            implementation(libs.findLibrary("wasmJsStdLib").get())
-                        }
-                    }
-                    val wasmJsTest by getting {
-                        dependencies {
-                            implementation(libs.findLibrary("wasmJsTest").get())
-                        }
-                    }
                 }
             }
         }

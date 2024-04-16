@@ -15,14 +15,6 @@ kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotli
 kotlinSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 kotlinSerializationCbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "kotlinSerialization" }
 
-# Js
-jsStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-js", version.ref = "kotlin" }
-jsTest = { module = "org.jetbrains.kotlin:kotlin-test-js", version.ref = "kotlin" }
-
-# Wasm
-wasmJsStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-wasm-js", version.ref = "kotlin" }
-wasmJsTest = { module = "org.jetbrains.kotlin:kotlin-test-wasm-js", version.ref = "kotlin" }
-
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
