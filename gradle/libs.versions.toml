@@ -3,7 +3,6 @@ agp = "8.1.4"
 kotlin = "1.9.22"
 androidMinSdk = "24"
 androidCompileSdk = "33"
-kotlinSerialization = "1.6.2"
 
 [libraries]
 kotlinGradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -12,8 +11,6 @@ androidGradlePlugin = { group = "com.android.tools.build", name = "gradle", vers
 # Common
 kotlinStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlinSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
-kotlinSerializationCbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "kotlinSerialization" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
