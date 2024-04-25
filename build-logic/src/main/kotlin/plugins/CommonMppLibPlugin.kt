@@ -82,9 +82,11 @@ class CommonMppLibPlugin : Plugin<Project> {
 
     private fun getHostOsName(): HostOs {
         val target = System.getProperty("os.name")
-        if (target == "Linux") return HostOs.LINUX
-        if (target.startsWith("Windows")) return HostOs.WINDOWS
-        if (target.startsWith("Mac")) return HostOs.MAC
-        throw GradleException("Unknown OS: $target")
+        return when {
+            target == "Linux" -> HostOs.LINUX
+            target.startsWith("Windows") -> HostOs.WINDOWS
+            target.startsWith("Mac") -> HostOs.MAC
+            else -> throw GradleException("Unknown OS: $target")
+        }
     }
 }
