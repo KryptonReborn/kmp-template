@@ -2,9 +2,7 @@ plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
     id("maven-publish")
 }
-
 version = "0.0.1"
-
 android {
     namespace = "kmp.template"
 }
@@ -24,12 +22,13 @@ kotlin {
 publishing {
     repositories {
         maven {
+            name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/KryptonReborn/kmp-template")
             credentials {
                 username =
-                    project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_USERNAME")
+                    project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME_GITHUB")
                 password =
-                    project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
+                    project.findProperty("gpr.token") as String? ?: System.getenv("TOKEN_GITHUB")
             }
         }
     }
