@@ -5,11 +5,11 @@ on:
     types: [ created ]
   push:
     branches:
-      - release-packages/**
+      - publish**
 
 env:
-  USERNAME_GITHUB: ${{ secrets.GH_USERNAME }}
-  TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+  USERNAME_GITHUB: ${{ github.actor }}
+  TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   publish:
