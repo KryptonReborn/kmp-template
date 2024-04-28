@@ -1,10 +1,11 @@
 plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
-    id("maven-publish")
+    id(libs.plugins.mavenPublish.get().pluginId)
 }
-version = "0.0.1"
+project.property("library.version") as String
+
 android {
-    namespace = "kmp.template"
+    namespace = project.property("library.namespace") as String
 }
 
 kotlin {
@@ -22,8 +23,7 @@ kotlin {
 publishing {
     repositories {
         maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/KryptonReborn/kmp-template")
+            url = uri(project.property("library.url") as String)
             credentials {
                 username =
                     project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME_GITHUB")
@@ -34,8 +34,8 @@ publishing {
     }
     publications {
         create<MavenPublication>("multiplatform") {
-            groupId = "kmp.template"
-            artifactId = "library"
+            groupId = project.property("library.groupId") as String
+            artifactId = project.property("library.artifactId") as String
             from(components["kotlin"])
         }
     }
