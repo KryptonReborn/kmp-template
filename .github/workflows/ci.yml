@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Optimized CI
 
 on:
   push:
@@ -20,6 +20,8 @@ jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+    container:
+      image: alvrme/alpine-android:android-33-jdk17
 
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +29,9 @@ jobs:
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
-          path: ${{ env.GRADLE_CACHE_PATH }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
