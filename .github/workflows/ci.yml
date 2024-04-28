@@ -1,26 +1,26 @@
-name: Publish package
+name: Continuous Integration
 
 on:
-  release:
-    types: [ created ]
   push:
     branches:
-      - publish**
+      - main
+      - releases/*
+  pull_request:
+    branches:
+      - main
+      - releases/*
 
 env:
-  USERNAME_GITHUB: ${{ github.actor }}
-  TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
   JAVA_VERSION: '17'
   GRADLE_CACHE_PATH: |
     ~/.gradle/caches
     ~/.gradle/wrapper
 
 jobs:
-  publish:
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+
     steps:
       - uses: actions/checkout@v4
 
@@ -42,17 +42,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Publish package
-        run: ./gradlew publish
-
-      - name: Cache cleanup
-        if: always()
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: cleanup-${{ runner.os }}-${{ github.run_id }}
-          restore-keys: cleanup-
+      - name: Build and Test
+        run: ./gradlew build test --build-cache --gradle-user-home ~/.gradle
 
     timeout-minutes: 30
