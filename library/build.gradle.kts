@@ -2,7 +2,7 @@ plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
     id(libs.plugins.mavenPublish.get().pluginId)
 }
-project.property("library.version") as String
+version = project.property("library.version") as String
 
 android {
     namespace = project.property("library.namespace") as String
