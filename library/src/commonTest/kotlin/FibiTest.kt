@@ -2,6 +2,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class FibiTest {
+    private val testData = loadTestDataJson()
 
     @Test
     fun test() {

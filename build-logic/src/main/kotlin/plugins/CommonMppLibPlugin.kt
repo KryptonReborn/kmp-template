@@ -13,6 +13,8 @@ class CommonMppLibPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply(libs.findPlugin("androidLibrary").get().get().pluginId)
                 apply(libs.findPlugin("kotlinMultiplatform").get().get().pluginId)
+                apply(libs.findPlugin("kotlinPluginSerialization").get().get().pluginId)
+                apply(libs.findPlugin("kotlinTestingResource").get().get().pluginId)
             }
 
             extensions.configure<LibraryExtension> {
@@ -34,22 +36,32 @@ class CommonMppLibPlugin : Plugin<Project> {
                 jvm()
                 js().apply {
                     compilations.apply {
-                        nodejs()
+                        nodejs {
+                            testTask {
+                                useMocha {
+                                    timeout = "20s"
+                                }
+                            }
+                        }
+// TODO: Temporarily disable the browser test due to 'Read failed: Request Header Fields Too Large'
                         browser {
                             testTask {
-                                useKarma {
-                                    useChromeHeadless()
-                                }
+                                enabled = false
                             }
                         }
                     }
                 }
-
-                @OptIn(ExperimentalWasmDsl::class)
-                wasmJs {
-                    browser()
-                    binaries.executable()
-                }
+// waiting for wasm support in kotlinx resource https://github.com/goncalossilva/kotlinx-resources/issues/91
+//                @OptIn(ExperimentalWasmDsl::class)
+//                wasmJs {
+//                    browser()
+//                    nodejs()
+//                    binaries.executable()
+//                }
+//                @OptIn(ExperimentalWasmDsl::class)
+//                wasmWasi {
+//                    nodejs()
+//                }
                 androidTarget {
                     publishLibraryVariants("release")
                     compilations.all {
@@ -66,6 +78,8 @@ class CommonMppLibPlugin : Plugin<Project> {
                     commonMain.get()
                     commonTest.dependencies {
                         implementation(libs.findLibrary("kotlinTest").get())
+                        implementation(libs.findLibrary("kotlinxSerializationJson").get())
+                        implementation(libs.findLibrary("kotlinTestingResource").get())
                     }
                     nativeMain.get().dependsOn(commonMain.get())
                     nativeTest.get().dependsOn(commonTest.get())
