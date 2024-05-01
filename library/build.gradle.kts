@@ -1,6 +1,6 @@
 plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
-    id(libs.plugins.publish.get().pluginId)
+    id(libs.plugins.commonMppPublish.get().pluginId)
 }
 
 publishConfig {

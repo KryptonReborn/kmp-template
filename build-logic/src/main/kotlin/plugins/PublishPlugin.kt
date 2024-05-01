@@ -21,23 +21,23 @@ class PublishPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         with(project) {
             val publishExtension =
-                project.extensions.create("publishConfig", PublishExtension::class.java)
+                extensions.create("publishConfig", PublishExtension::class.java)
 
             with(pluginManager) {
                 apply(libs.findPlugin("kotlinMultiplatform").get().get().pluginId)
                 apply(libs.findPlugin("mavenPublish").get().get().pluginId)
             }
-            project.afterEvaluate {
+            afterEvaluate {
                 configure<PublishingExtension> {
                     repositories {
                         maven {
                             url = uri(publishExtension.url)
                             credentials {
                                 username =
-                                    project.findProperty("gpr.user") as String? ?: System.getenv(
+                                    findProperty("gpr.user") as String? ?: System.getenv(
                                         "USERNAME_GITHUB"
                                     )
-                                password = project.findProperty("gpr.token") as String?
+                                password = findProperty("gpr.token") as String?
                                     ?: System.getenv("TOKEN_GITHUB")
                             }
                         }
