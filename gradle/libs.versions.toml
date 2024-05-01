@@ -24,3 +24,4 @@ kotlinTestingResource = { id = "com.goncalossilva.resources", version.ref = "kot
 mavenPublish = { id = "maven-publish", version = "unspecified" }
 # Plugins defined by this project
 commonMppLib = { id = "common.mpp.lib", version = "unspecified" }
+publish = { id = "common.mpp.publish", version = "unspecified" }
