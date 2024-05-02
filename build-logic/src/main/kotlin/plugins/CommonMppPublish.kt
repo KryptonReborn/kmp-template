@@ -15,14 +15,13 @@ open class PublishExtension {
     lateinit var artifactId: String
 }
 
-class PublishPlugin : Plugin<Project> {
+class CommonMppPublish : Plugin<Project> {
     override fun apply(project: Project) {
         with(project) {
             val publishExtension =
                 extensions.create("publishConfig", PublishExtension::class.java)
 
             with(pluginManager) {
-                apply(libs.findPlugin("kotlinMultiplatform").get().get().pluginId)
                 apply(libs.findPlugin("mavenPublish").get().get().pluginId)
             }
             afterEvaluate {
@@ -31,10 +30,8 @@ class PublishPlugin : Plugin<Project> {
                         maven {
                             url = uri(publishExtension.url)
                             credentials {
-                                username =
-                                    findProperty("gpr.user") as String? ?: System.getenv(
-                                        "USERNAME_GITHUB"
-                                    )
+                                username = findProperty("gpr.user") as String?
+                                    ?: System.getenv("USERNAME_GITHUB")
                                 password = findProperty("gpr.token") as String?
                                     ?: System.getenv("TOKEN_GITHUB")
                             }
