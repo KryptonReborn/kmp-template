@@ -6,12 +6,10 @@ import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.get
+import org.gradle.kotlin.dsl.named
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 open class PublishExtension {
-    lateinit var name: String
     lateinit var url: String
     lateinit var groupId: String
     lateinit var artifactId: String
@@ -43,10 +41,9 @@ class PublishPlugin : Plugin<Project> {
                         }
                     }
                     publications {
-                        create<MavenPublication>(publishExtension.name) {
+                        named<MavenPublication>("kotlinMultiplatform") {
                             groupId = publishExtension.groupId
                             artifactId = publishExtension.artifactId
-                            from(components["kotlin"])
                         }
                     }
                 }

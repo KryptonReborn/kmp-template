@@ -4,7 +4,6 @@ plugins {
 }
 
 publishConfig {
-    name = "multiplatform"
     url = "https://maven.pkg.github.com/KryptonReborn/kmp-template"
     groupId = "kmp.template"
     artifactId = "library"
