@@ -21,7 +21,7 @@ env:
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -48,7 +48,7 @@ jobs:
 
   publish:
     name: Publish Package
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     permissions:
       contents: read
       packages: write
