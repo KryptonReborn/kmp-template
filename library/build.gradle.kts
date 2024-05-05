@@ -14,7 +14,7 @@ publishConfig {
     artifactId = "library"
 }
 
-version = "0.0.4"
+version = "0.0.1"
 
 android {
     namespace = "kmp.template"
