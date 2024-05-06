@@ -20,7 +20,7 @@ This is the template for initializing a repo based on Kotlin Multiplarform
 ## Download
 You must use a personal access token (classic) with the appropriate scopes to publish and install packages in [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
 
-Add the following repository to your settings.gradle file
+Add the following repository to your settings.gradle.kts file
 ```kotlin
 repositories {
     maven {
