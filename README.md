@@ -1,5 +1,5 @@
 
-# Bech32
+# Kotlin template
 [![badge-license]][url-license]  
 [![badge-latest-release]][url-latest-release]
 
