@@ -17,11 +17,6 @@
 ![badge-support-apple-silicon]  
 ![badge-support-js-ir]
 
-### Publish
-1. Create branch 'release/vX.X.X'
-2. Create tag 'vX.X.X'
-3. Push the tag to trigger the CI/CD
-
 <!-- TAG_VERSION -->  
 [badge-latest-release]: https://img.shields.io/badge/latest--release-0.0.1-blue.svg?style=flat
 [badge-license]: https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat
