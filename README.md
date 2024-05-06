@@ -1,5 +1,5 @@
 # KMP TEMPLATE
-[![GitHub release](https://img.shields.io/badge/release-v0.0.2-blue.svg)](https://github.com/KryptonReborn/kmp-template/releases/tag/v0.2.2) [![Kotlin Version](https://img.shields.io/badge/Kotlin-1.9.23-B125EA?logo=kotlin)](https://kotlinlang.org)
+[![GitHub release](https://img.shields.io/badge/release-v0.0.2-blue.svg)](https://github.com/KryptonReborn/kmp-template/releases/tag/v0.0.2) [![Kotlin Version](https://img.shields.io/badge/Kotlin-1.9.23-B125EA?logo=kotlin)](https://kotlinlang.org)
 [![Maven Central](https://img.shields.io/maven-central/v/de.peilicke.sascha/kase64.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/de.peilicke.sascha/kase64)
 [![Build Status](https://github.com/saschpe/kase64/workflows/Main/badge.svg)](https://github.com/KryptonReborn/kmp-template/actions)
 [![License](http://img.shields.io/:License-Apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
