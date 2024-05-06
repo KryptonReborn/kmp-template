@@ -21,7 +21,7 @@ This is the template for initializing a repo based on Kotlin Multiplarform
 You must use a personal access token (classic) with the appropriate scopes to publish and install packages in [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
 
 Add the following repository to your settings.gradle.kts file
-```kotlin
+```settings.gradle.kts
 repositories {
     maven {
         url = uri("https://maven.pkg.github.com/KryptoReborn/[library name]")
