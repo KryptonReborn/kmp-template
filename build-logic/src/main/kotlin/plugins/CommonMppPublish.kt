@@ -41,6 +41,31 @@ class CommonMppPublish : Plugin<Project> {
                         named<MavenPublication>("kotlinMultiplatform") {
                             groupId = publishExtension.groupId
                             artifactId = publishExtension.artifactId
+                            pom {
+                                name.set(rootProject.name)
+                                description.set(findProperty("publicationDescriptionLibrary") as String)
+                                url.set(findProperty("publicationUrl") as String)
+
+                                licenses {
+                                    license {
+                                        name.set(findProperty("publicationLicenseName") as String)
+                                        url.set(findProperty("publicationLicenseUrl") as String)
+                                    }
+                                }
+
+                                scm {
+                                    url.set(findProperty("publicationScmUrl") as String)
+                                    connection.set(findProperty("publicationScmConnection") as String)
+                                    developerConnection.set(findProperty("publicationScmDeveloperConnection") as String)
+                                }
+
+                                developers {
+                                    developer {
+                                        id.set(findProperty("publicationDeveloperId") as String)
+                                        name.set(findProperty("publicationDeveloperName") as String)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
