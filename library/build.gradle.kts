@@ -9,7 +9,7 @@ plugins {
 }
 
 publishConfig {
-    url = "https://maven.pkg.github.com/KryptonReborn/kmp-template"
+    url = "https://maven.pkg.github.com/hieu-dd/kmp-template-clone"
     groupId = "template.clone3"
     artifactId = "clone.template"
 }
