@@ -10,8 +10,8 @@ plugins {
 
 publishConfig {
     url = "https://maven.pkg.github.com/KryptonReborn/kmp-template"
-    groupId = "kmp.template"
-    artifactId = "library"
+    groupId = "template.clone3"
+    artifactId = "clone.template"
 }
 
 version = "0.0.2"
