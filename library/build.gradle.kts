@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
     id(libs.plugins.commonMppPublish.get().pluginId)
-    id(libs.plugins.ktlint.get().pluginId)
 }
 
 publishConfig {
