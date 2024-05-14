@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
@@ -6,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 plugins {
     id(libs.plugins.commonMppLib.get().pluginId)
     id(libs.plugins.commonMppPublish.get().pluginId)
+    id(libs.plugins.ktlint.get().pluginId)
 }
 
 publishConfig {

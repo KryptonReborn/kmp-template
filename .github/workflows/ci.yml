@@ -40,6 +40,9 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Check ktlint
+        run: ./gradlew ktlintCheck --gradle-user-home ~/.gradle
+
       - name: Build and Test
         run: ./gradlew build --build-cache --gradle-user-home ~/.gradle
 
@@ -97,7 +100,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: ${{ steps.changelog.outputs.changelog }}
-        
-                For more details see [CHANGELOG.md](https://github.com/KryptonReborn/kmp-template/blob/main/CHANGELOG.md).
+            
+            For more details see [CHANGELOG.md](https://github.com/KryptonReborn/kmp-template/blob/main/CHANGELOG.md).
           draft: false
           prerelease: false

@@ -5,6 +5,7 @@ androidMinSdk = "24"
 androidCompileSdk = "34"
 kotlinxSerialization = "1.6.3"
 kotlinTestingResource = "0.4.1"
+ktlintVersion = "12.1.1"
 
 [libraries]
 kotlinGradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -20,7 +21,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinPluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinTestingResource = { id = "com.goncalossilva.resources", version.ref = "kotlinTestingResource" }
-
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintVersion" }
 mavenPublish = { id = "maven-publish", version = "unspecified" }
 # Plugins defined by this project
 commonMppLib = { id = "common.mpp.lib", version = "unspecified" }
