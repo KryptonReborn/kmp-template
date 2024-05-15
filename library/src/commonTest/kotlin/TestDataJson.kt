@@ -6,9 +6,10 @@ import kotlinx.serialization.json.Json
 class TestDataJson
 
 fun loadTestDataJson(): TestDataJson {
-    val json = Json {
-        ignoreUnknownKeys = true
-    }
+    val json =
+        Json {
+            ignoreUnknownKeys = true
+        }
 
     return json.decodeFromString(Resource("src/commonTest/resources/test_data.json").readText())
 }
