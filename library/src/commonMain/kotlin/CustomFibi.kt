@@ -1,3 +1,7 @@
+/**
+ * CustomFibi
+ * This is a custom implementation of the Fibonacci sequence generator.
+ */
 val fibi =
     sequence {
         var a = firstElement
