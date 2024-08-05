@@ -1,10 +1,10 @@
 [versions]
 agp = "8.3.2"
-kotlin = "1.9.23"
+kotlin = "2.0.0"
 androidMinSdk = "24"
 androidCompileSdk = "34"
-kotlinxSerialization = "1.6.3"
-kotlinTestingResource = "0.4.1"
+kotlinxSerialization = "1.7.1"
+kotlinTestingResource = "0.9.0"
 ktlintVersion = "12.1.1"
 dokka = "1.9.20"
 kover = "0.8.0"
