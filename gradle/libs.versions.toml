@@ -6,6 +6,8 @@ androidCompileSdk = "34"
 kotlinxSerialization = "1.6.3"
 kotlinTestingResource = "0.4.1"
 ktlintVersion = "12.1.1"
+dokka = "1.9.20"
+kover = "0.8.0"
 
 [libraries]
 kotlinGradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -26,3 +28,5 @@ mavenPublish = { id = "maven-publish", version = "unspecified" }
 # Plugins defined by this project
 commonMppLib = { id = "common.mpp.lib", version = "unspecified" }
 commonMppPublish = { id = "common.mpp.publish", version = "unspecified" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
